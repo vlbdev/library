@@ -5,7 +5,7 @@
 
 body {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 3fr 1fr;
 }
 
 aside {
@@ -15,4 +15,10 @@ aside {
 
 main {
   background-color: #ddd;
+}
+
+h1 {
+  color: crimson;
+  text-align: center;
+  padding: 20px;
 }
