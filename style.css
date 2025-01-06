@@ -32,6 +32,7 @@ section {
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(3, 300px);
+  gap: 20px;
 }
 
 .book {
@@ -51,4 +52,13 @@ section {
 
 .book > button {
   margin-top: 8px;
+}
+
+aside {
+  padding: 20px;
+}
+
+h2 {
+  font-size: 16px;
+  text-align: center;
 }
