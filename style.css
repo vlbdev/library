@@ -30,9 +30,25 @@ h1 {
 
 section {
   padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
 }
 
-section > div {
+.book {
   border: 1px solid #aaa;
   padding: 20px;
+  border-radius: 8px;
+}
+
+.book > p {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+}
+
+.book p + p {
+  margin-top: 8px;
+}
+
+.book > button {
+  margin-top: 8px;
 }
