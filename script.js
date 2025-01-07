@@ -1,4 +1,62 @@
-const myLibrary = [];
+const myLibrary = [
+  {
+    Title: "Under the hood",
+    Author: "Jan Jackie",
+    "Number of pages": 125,
+    Read: "Yes",
+  },
+  {
+    Title: "Under the hood",
+    Author: "Jan Jackie",
+    "Number of pages": 225,
+    Read: "Yes",
+  },
+  {
+    Title: "Under the hood",
+    Author: "Jan Jackie",
+    "Number of pages": 325,
+    Read: "Yes",
+  },
+  {
+    Title: "Under the hood",
+    Author: "Jan Jackie",
+    "Number of pages": 425,
+    Read: "Yes",
+  },
+];
+
+const librarySection = document.querySelector("section");
+
+function printLibrary() {
+  for (let i = 0; i < myLibrary.length; i++) {
+    const book = document.createElement("div");
+    book.setAttribute("class", "book");
+    for (const key in myLibrary[i]) {
+      const para = document.createElement("p");
+      const spanKey = document.createElement("span");
+      spanKey.innerText = key;
+      para.appendChild(spanKey);
+      const spanValley = document.createElement("span");
+      spanValley.innerText = myLibrary[i][key];
+      para.appendChild(spanValley);
+      book.appendChild(para);
+    }
+
+    const changeButton = document.createElement("button");
+    changeButton.setAttribute("type", "button");
+    changeButton.innerText = "Change read status";
+    book.appendChild(changeButton);
+
+    const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("type", "button");
+    deleteButton.innerText = "Delete";
+    book.appendChild(deleteButton);
+
+    librarySection.appendChild(book);
+  }
+}
+
+printLibrary();
 
 function Book() {
   // the constructor...
