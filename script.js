@@ -58,6 +58,17 @@ function printLibrary() {
 
 printLibrary();
 
+const addButton = document.querySelector(".addButton");
+
+addButton.addEventListener("click", () => {
+  const newBook = {};
+  newBook.Title = document.querySelector("#title").value;
+  newBook.Author = document.querySelector("#author").value;
+  newBook["Number of pages"] = document.querySelector("#pages").valueAsNumber;
+  newBook.Read = document.querySelector("input[name='read']:checked").value;
+  myLibrary.push(newBook);
+});
+
 function Book() {
   // the constructor...
 }
