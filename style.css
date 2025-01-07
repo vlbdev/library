@@ -62,3 +62,29 @@ h2 {
   font-size: 16px;
   text-align: center;
 }
+
+form {
+  margin: 20px 0;
+}
+
+form p {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 10px;
+}
+
+fieldset {
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+form button {
+  margin: auto;
+  display: block;
+  padding: 5px 40px;
+}
