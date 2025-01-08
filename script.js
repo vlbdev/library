@@ -60,24 +60,27 @@ for (let i = 0; i < myLibrary.length; i++) {
 
 const addButton = document.querySelector(".addButton");
 addButton.addEventListener("click", () => {
-  const newBook = {};
-  newBook.Title = document.querySelector("#title").value;
-  newBook.Author = document.querySelector("#author").value;
-  newBook["Number of pages"] = document.querySelector("#pages").valueAsNumber;
-  newBook.Read = document.querySelector("input[name='read']:checked").value;
+  const newBook = new Book(
+    document.querySelector("#title").value,
+    document.querySelector("#author").value,
+    document.querySelector("#pages").valueAsNumber,
+    document.querySelector("input[name='read']:checked").value
+  );
+
   myLibrary.push(newBook);
   printLibrary(newBook);
 });
 
-function Book() {
-  // the constructor...
+function Book(title, author, pages, read) {
+  this.Title = title;
+  this.Author = author;
+  this["Number of pages"] = pages;
+  this.Read = read;
 }
 
 function addBookToLibrary() {
   // do stuff here
 }
-
-//create constructor for new book object
 
 //Add a button on each book’s display to remove the book from the library
 
