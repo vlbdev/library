@@ -60,6 +60,9 @@ function printLibrary(bookObject) {
     myLibrary.splice(deleteButton.getAttribute("data") - 1, 1);
     console.log(myLibrary);
     // clear dom notes book
+    while (librarySection.firstChild) {
+      librarySection.removeChild(librarySection.firstChild);
+    }
     // print actual list of books from array
   });
 
