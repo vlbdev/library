@@ -1,27 +1,23 @@
 const myLibrary = [
   {
-    id: 1,
     Title: "Under the hood",
     Author: "Jan Jackie",
     "Number of pages": 125,
     Read: "Yes",
   },
   {
-    id: 2,
     Title: "Under the hood",
     Author: "Jan Jackie",
     "Number of pages": 225,
     Read: "Yes",
   },
   {
-    id: 3,
     Title: "Under the hood",
     Author: "Jan Jackie",
     "Number of pages": 325,
     Read: "Yes",
   },
   {
-    id: 4,
     Title: "Under the hood",
     Author: "Jan Jackie",
     "Number of pages": 425,
@@ -31,7 +27,7 @@ const myLibrary = [
 
 const librarySection = document.querySelector("section");
 
-function printLibrary(bookObject) {
+function printLibrary(bookObject, id) {
   const book = document.createElement("div");
   book.setAttribute("class", "book");
   for (const key in bookObject) {
@@ -52,49 +48,47 @@ function printLibrary(bookObject) {
 
   const deleteButton = document.createElement("button");
   deleteButton.setAttribute("type", "button");
-  deleteButton.setAttribute("data", bookObject.id);
+  deleteButton.setAttribute("data", id);
   deleteButton.innerText = "Delete";
   book.appendChild(deleteButton);
 
   deleteButton.addEventListener("click", () => {
-    myLibrary.splice(deleteButton.getAttribute("data") - 1, 1);
-    console.log(myLibrary);
+    myLibrary.splice(deleteButton.getAttribute("data"), 1);
+    console.table(myLibrary);
     // clear dom notes book
     while (librarySection.firstChild) {
       librarySection.removeChild(librarySection.firstChild);
     }
     // print actual list of books from array
+    for (let i = 0; i < myLibrary.length; i++) {
+      printLibrary(myLibrary[i], i);
+    }
   });
 
   librarySection.appendChild(book);
 }
 
 for (let i = 0; i < myLibrary.length; i++) {
-  printLibrary(myLibrary[i]);
+  printLibrary(myLibrary[i], i);
 }
 
 const addButton = document.querySelector(".addButton");
 
 addButton.addEventListener("click", () => {
   const newBook = new Book(
-    myLibrary.length + 1,
     document.querySelector("#title").value,
     document.querySelector("#author").value,
     document.querySelector("#pages").valueAsNumber,
     document.querySelector("input[name='read']:checked").value
   );
   myLibrary.push(newBook);
-  printLibrary(newBook);
+  printLibrary(newBook, myLibrary.length - 1);
 });
 
-function Book(id, title, author, pages, read) {
-  this.id = id;
+function Book(title, author, pages, read) {
   this.Title = title;
   this.Author = author;
   this["Number of pages"] = pages;
   this.Read = read;
 }
-
-//Add a button on each book’s display to remove the book from the library
-
 //Add a button on each book’s display to change its read status
