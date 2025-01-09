@@ -91,4 +91,8 @@ function Book(title, author, pages, read) {
   this["Number of pages"] = pages;
   this.Read = read;
 }
+
+Book.prototype.changeReadStatus = function () {
+  console.log("1111");
+};
 //Add a button on each book’s display to change its read status
