@@ -31,14 +31,21 @@ function printLibrary(bookObject, id) {
   const book = document.createElement("div");
   book.setAttribute("class", "book");
   for (const key in bookObject) {
-    const para = document.createElement("p");
-    const spanKey = document.createElement("span");
-    spanKey.innerText = key;
-    para.appendChild(spanKey);
-    const spanValley = document.createElement("span");
-    spanValley.innerText = bookObject[key];
-    para.appendChild(spanValley);
-    book.appendChild(para);
+    if (
+      key == "Title" ||
+      key == "Author" ||
+      key == "Number of pages" ||
+      key == "Read"
+    ) {
+      const para = document.createElement("p");
+      const spanKey = document.createElement("span");
+      spanKey.innerText = key;
+      para.appendChild(spanKey);
+      const spanValley = document.createElement("span");
+      spanValley.innerText = bookObject[key];
+      para.appendChild(spanValley);
+      book.appendChild(para);
+    }
   }
 
   const changeButton = document.createElement("button");
@@ -92,7 +99,7 @@ function Book(title, author, pages, read) {
   this.Read = read;
 }
 
-Book.prototype.changeReadStatus = function () {
+Object.prototype.changeReadStatus = function () {
   console.log("1111");
 };
 //Add a button on each book’s display to change its read status
