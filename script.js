@@ -55,6 +55,14 @@ function printLibrary(bookObject, id) {
   book.appendChild(changeButton);
   changeButton.addEventListener("click", () => {
     myLibrary[changeButton.getAttribute("data")].changeReadStatus();
+    // clear dom notes book
+    while (librarySection.firstChild) {
+      librarySection.removeChild(librarySection.firstChild);
+    }
+    // print actual list of books from array
+    for (let i = 0; i < myLibrary.length; i++) {
+      printLibrary(myLibrary[i], i);
+    }
   });
 
   const deleteButton = document.createElement("button");
