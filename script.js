@@ -53,6 +53,9 @@ function printLibrary(bookObject, id) {
   changeButton.setAttribute("data", id);
   changeButton.innerText = "Change read status";
   book.appendChild(changeButton);
+  changeButton.addEventListener("click", () => {
+    myLibrary[changeButton.getAttribute("data")].changeReadStatus();
+  });
 
   const deleteButton = document.createElement("button");
   deleteButton.setAttribute("type", "button");
