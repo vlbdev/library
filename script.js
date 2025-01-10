@@ -104,6 +104,10 @@ function Book(title, author, pages, read) {
 }
 
 Object.prototype.changeReadStatus = function () {
-  console.log("1111");
+  if (this.Read == "Yes") {
+    this.Read = "No";
+  } else {
+    this.Read = "Yes";
+  }
 };
 //Add a button on each book’s display to change its read status
