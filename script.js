@@ -50,6 +50,7 @@ function printLibrary(bookObject, id) {
 
   const changeButton = document.createElement("button");
   changeButton.setAttribute("type", "button");
+  changeButton.setAttribute("data", id);
   changeButton.innerText = "Change read status";
   book.appendChild(changeButton);
 
